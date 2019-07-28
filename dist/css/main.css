@@ -1,0 +1,42 @@
+.landing {
+  background: #232a3f;
+  color: white;
+  font-family: 'Anonymous Pro', monospace; }
+
+.terminal {
+  background: black;
+  width: 50%;
+  height: 50%;
+  margin: 10vh auto auto auto;
+  border-radius: 5px;
+  box-shadow: -10px 10px 5px #222222; }
+  .terminal .screen {
+    padding: 1.5rem; }
+  .terminal .title-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 25fr;
+    padding: 0.5rem;
+    background: #323846; }
+    .terminal .title-bar .btn-nav {
+      height: 10px;
+      width: 10px;
+      border-radius: 50%;
+      border: 3px solid;
+      display: inline-block;
+      margin: 0.3rem; }
+    .terminal .title-bar .btn-close {
+      background: red;
+      border-color: red; }
+    .terminal .title-bar .btn-minimize {
+      background: yellow;
+      border-color: yellow; }
+    .terminal .title-bar .btn-maximize {
+      background: green;
+      border-color: green; }
+    .terminal .title-bar .title {
+      margin-left: 33%; }
+  .terminal .prompt {
+    color: lime;
+    font-weight: bold; }
+  .terminal .tilde {
+    color: blue; }
