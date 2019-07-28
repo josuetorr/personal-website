@@ -10,29 +10,39 @@
 </head>
 <body class="landing">
 
-    <div class="terminal typewriter">
+    <div class="terminal">
         <section class="title-bar">
             <span class="btn-nav btn-close"></span>
             <span class="btn-nav btn-minimize"></span>
             <span class="btn-nav btn-maximize"></span>
             <span class="title">user@josuetorres:~</span>
         </section>
-        <section class="screen">
+        <section class="screen typewriter">
             <section class="command-prompt">
                     <p><span class="prompt">user@joshtorres</span>:<span class="tilde">~</span>$ <span class="program">cat josuetorres.txt</span></p>
             </section>
             <section class="program-output">
-                <p>Hi, my name is Josh Torres and welcome to my personal website! I am currently studying computer science at UQAM, Montreal, Canada.</p>
-                <p></p>
+                <p>Hi, my name is Josh Torres! I am currently studying computer science at UQAM, Montreal, Canada.</p>
+                <p>I am passionate about low-level programming. My favorite languages are C, C++ and assembly. I also have some web developpement experience.
+                    As a logic driven person, I mainly worked with back-end technologies, such as PHP and Nodejs.
+                </p>
+                <p>So welcome to my personal website, where you will find more information about me. Let's run it!</p>
             </section>
-            
             <section class="command-prompt">
-                <p><span class="prompt">user@joshtorres</span>:<span class="tilde">~</span>$ <span class="program">./josuetorres</span></p>
+                <p><span class="prompt">user@joshtorres</span>:<span class="tilde">~</span>$ <span class="program">make</span></p>
+                <section class="program-output">
+                    <p>gcc -o joshtorres.c</p>
+                </section>
             </section>
+            <section class="command-prompt">
+                    <p><span class="prompt">user@joshtorres</span>:<span class="tilde">~</span>$ <span class="program">./joshtorres</span></p>
+                    <section class="program-output">
+                        <p>Launching Josh's Website</p>
+                    </section>
+                </section>
         </section>
     </div>
 
-    <script src="js/typewriter.js"></script>
-    <script src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 
-class Typewriter
+export default class Typewriter
 {
 	constructor(options)
 	{
