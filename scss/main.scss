@@ -1,7 +1,14 @@
+
+
+body {
+    background: rgb(202, 202, 202);
+    color: black;
+    font-family: 'Anonymous Pro', monospace;
+}
+
 .landing {
     background: #232a3f;
     color: white;
-    font-family: 'Anonymous Pro', monospace;
 }
 
 .terminal {
@@ -22,7 +29,7 @@
         $btnSize: 10px;
 
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 25fr;
+        grid-template-columns: 1fr 1fr 1fr 30fr;
         padding: 0.5rem;
         background: #323846;
 

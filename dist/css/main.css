@@ -1,7 +1,11 @@
+body {
+  background: #cacaca;
+  color: black;
+  font-family: 'Anonymous Pro', monospace; }
+
 .landing {
   background: #232a3f;
-  color: white;
-  font-family: 'Anonymous Pro', monospace; }
+  color: white; }
 
 .terminal {
   background: black;
@@ -14,7 +18,7 @@
     padding: 1.5rem; }
   .terminal .title-bar {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 25fr;
+    grid-template-columns: 1fr 1fr 1fr 30fr;
     padding: 0.5rem;
     background: #323846; }
     .terminal .title-bar .btn-nav {

@@ -1,5 +1,5 @@
 
-class Typewriter
+export default class Typewriter
 {
 	constructor(options)
 	{
@@ -9,6 +9,16 @@ class Typewriter
 		for (let element of this.container.childNodes)
 		{
 			this.getTextNodes(element);
+		}
+
+		this.options = {
+			typingSpeed: 10,
+			blinkingSpeed: 800
+		};
+
+		for (let property in options)
+		{
+			this.options[property] = options[property];
 		}
 	}
 
@@ -57,19 +67,18 @@ class Typewriter
 			else
 			{
 				clearInterval(intervalId);
+				const done = new Event('typewriterDone');
+				this.container.dispatchEvent(done);
 			}
 				
-		}, 10);
+		}, this.options.typingSpeed);
 
 	}
 
+	getContainer() { return this.container; }
+
 }
 
-const tw = new Typewriter({
-	el: '#typewriter'
-});
-
-tw.type();
 
 
 
