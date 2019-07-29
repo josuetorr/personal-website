@@ -1,76 +1,83 @@
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-    background: rgb(202, 202, 202);
-    color: black;
     font-family: 'Anonymous Pro', monospace;
 }
 
 .landing {
     background: #232a3f;
-    color: white;
+    color: #fff;
+    height: 100vh;
+    padding: 25vh;
+
+    .terminal {
+
+        background-color: black;
+        border-radius: 5px;
+        box-shadow: -10px 10px 5px #222222;
+        width: 65%;
+        margin: auto;
+
+        .title-bar {
+            
+            background-color: #323846;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr) 40fr;
+
+            .nav-btn {
+                height: 15px;
+                width: 15px;
+                border: solid 3px;
+                border-radius: 50%;
+                margin: 10px;
+            }
+            
+            .close {
+                background-color: red;
+                border-color: red;
+            }
+
+            .minimize {
+                background-color: yellow;
+                border-color: yellow;
+            }
+
+            .maximize {
+                background-color: rgb(0, 255, 0);
+                border-color: rgb(0, 255, 0);
+            }
+
+            .title {
+                margin: 10px;
+                text-align: center;
+            }
+        }
+
+        .screen {
+            font-size: 1.5rem;
+            
+            * {
+                padding: 0.3rem;
+            }
+
+            .prompt {
+                color: rgb(0, 255, 0);
+                font-weight: 900;
+            }
+
+            .tilde {
+                color: blue;
+            }
+        }
+    }
 }
 
-.terminal {
-
-    background: black;
-    width: 50%;
-    height: 50%;
-    margin: 10vh auto auto auto;
-    border-radius: 5px;
-    box-shadow: -10px 10px 5px #222222;
-
-    .screen {
-        padding: 1.5rem;
-    }
-
-    .title-bar {
-        $btnMargin: 0.3rem;
-        $btnSize: 10px;
-
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 30fr;
-        padding: 0.5rem;
-        background: #323846;
-
-        .btn-nav {
-            height: $btnSize;
-            width: $btnSize;
-            border-radius: 50%;
-            border: 3px solid;
-            display: inline-block;
-            margin: $btnMargin;
-        }
-
-        .btn-close {
-           background: red;
-           border-color: red;
-        }
-
-        .btn-minimize {
-            background: yellow;
-            border-color: yellow;
-        }
-
-        .btn-maximize {
-            background: rgb(0, 255, 0);
-            border-color: rgb(0, 255, 0);
-        }
-
-        // Might have to change this later on
-        .title {
-            margin-left: 33%;
-        }
-
-        
-    }
-
-    .prompt {
-        color: rgb(0, 255, 0);
-        font-weight: bolder;
-    }
-
-    .tilde {
-        color: blue;
-    }
+.homepage {
+    background: rgb(235, 228, 228);
+    color: black;
+    height: 100vh;
 }

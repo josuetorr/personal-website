@@ -8,40 +8,57 @@
     <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro&display=swap" rel="stylesheet">
     <title>Josh Torres</title>
 </head>
-<body class="landing">
+<body>
 
-    <div class="terminal">
-        <section class="title-bar">
-            <span class="btn-nav btn-close"></span>
-            <span class="btn-nav btn-minimize"></span>
-            <span class="btn-nav btn-maximize"></span>
-            <span class="title">user@josuetorres:~</span>
-        </section>
-        <section class="screen typewriter">
-            <section class="command-prompt">
-                    <p><span class="prompt">user@joshtorres</span>:<span class="tilde">~</span>$ <span class="program">cat joshtorres.txt</span></p>
-                    <section class="program-output">
-                        <p>Hi, my name is Josh Torres! I am currently studying computer science at UQAM, Montreal, Canada.</p>
-                        <p>I am passionate about low-level programming. My favorite languages are C, C++ and assembly. I also have some web developpement experience.
-                            As a logic driven person, I mainly worked with back-end technologies, such as PHP and Nodejs.
-                        </p>
-                        <p>So welcome to my personal website, where you will find more information about me. Let's run it!</p>
-                    </section>
-            </section>
-            <section class="command-prompt">
-                <p><span class="prompt">user@joshtorres</span>:<span class="tilde">~</span>$ <span class="program">make</span></p>
-                <section class="program-output">
-                    <p>gcc -o joshtorres.c</p>
-                </section>
-            </section>
-            <section class="command-prompt">
-                    <p><span class="prompt">user@joshtorres</span>:<span class="tilde">~</span>$ <span class="program">./joshtorres</span></p>
-                    <section class="program-output">
-                        <p>Press 'ENTER' to launch Josh's Website</p>
-                    </section>
-            </section>
-        </section>
-    </div>
+    <main class="landing">
+		<section class="terminal">
+			<section class="title-bar">
+				<span class="nav-btn close"></span>
+				<span class="nav-btn minimize"></span>
+				<span class="nav-btn maximize"></span>
+				<span class="title">user@joshtorres:~</span>
+			</section>
+			<section class="screen">
+				<section class="command-prompt">
+					<p class="command">
+						<span class="prompt">user@joshtorres</span>:<span class="tilde">~</span>$ cat joshtorres.txt
+					</p>
+					<section class="output">
+						<p>Hi, my name is Josh Torres! I am currently studying computer science at UQAM, Montreal, Canada.</p>
+						<p>I am passionate about low-level programming. My favorite languages are C, C++ and assembly. I also have some web developpement experience.
+							As a logic driven person, I mainly worked with back-end technologies, such as PHP and Nodejs.
+						</p>
+						<p>So welcome to my personal website, where you will find more information about me. Let's run it!</p>
+					</section>
+				</section>
+				<section class="command-prompt">
+					<p class="command">
+						<span class="prompt">user@joshtorres</span>:<span class="tilde">~</span>$ make
+					</p>
+					<section class="output">
+						<p>gcc -o joshtorres joshtorres.c</p>
+					</section>
+				</section>
+				<section class="command-prompt">
+					<p class="command">
+						<span class="prompt">user@joshtorres</span>:<span class="tilde">~</span>$ ./joshtorres
+					</p>
+					<section class="output">
+						<p>LAUCHING Josh's website</p>
+					</section>
+				</section>
+			</section>
+		</section>
+	</main>
+	<main class="homepage">
+
+	</main>
+	<main class="aboutme">
+
+	</main>
+	<main class="projects">
+
+	</main>
 
     <script type="module" src="js/main.js"></script>
 </body>

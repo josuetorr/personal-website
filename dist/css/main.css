@@ -1,46 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
 body {
-  background: #cacaca;
-  color: black;
   font-family: 'Anonymous Pro', monospace; }
 
 .landing {
   background: #232a3f;
-  color: white; }
+  color: #fff;
+  height: 100vh;
+  padding: 25vh; }
+  .landing .terminal {
+    background-color: black;
+    border-radius: 5px;
+    box-shadow: -10px 10px 5px #222222;
+    width: 65%;
+    margin: auto; }
+    .landing .terminal .title-bar {
+      background-color: #323846;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr) 40fr; }
+      .landing .terminal .title-bar .nav-btn {
+        height: 15px;
+        width: 15px;
+        border: solid 3px;
+        border-radius: 50%;
+        margin: 10px; }
+      .landing .terminal .title-bar .close {
+        background-color: red;
+        border-color: red; }
+      .landing .terminal .title-bar .minimize {
+        background-color: yellow;
+        border-color: yellow; }
+      .landing .terminal .title-bar .maximize {
+        background-color: lime;
+        border-color: lime; }
+      .landing .terminal .title-bar .title {
+        margin: 10px;
+        text-align: center; }
+    .landing .terminal .screen {
+      font-size: 1.5rem; }
+      .landing .terminal .screen * {
+        padding: 0.3rem; }
+      .landing .terminal .screen .prompt {
+        color: lime;
+        font-weight: 900; }
+      .landing .terminal .screen .tilde {
+        color: blue; }
 
-.terminal {
-  background: black;
-  width: 50%;
-  height: 50%;
-  margin: 10vh auto auto auto;
-  border-radius: 5px;
-  box-shadow: -10px 10px 5px #222222; }
-  .terminal .screen {
-    padding: 1.5rem; }
-  .terminal .title-bar {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 30fr;
-    padding: 0.5rem;
-    background: #323846; }
-    .terminal .title-bar .btn-nav {
-      height: 10px;
-      width: 10px;
-      border-radius: 50%;
-      border: 3px solid;
-      display: inline-block;
-      margin: 0.3rem; }
-    .terminal .title-bar .btn-close {
-      background: red;
-      border-color: red; }
-    .terminal .title-bar .btn-minimize {
-      background: yellow;
-      border-color: yellow; }
-    .terminal .title-bar .btn-maximize {
-      background: lime;
-      border-color: lime; }
-    .terminal .title-bar .title {
-      margin-left: 33%; }
-  .terminal .prompt {
-    color: lime;
-    font-weight: bolder; }
-  .terminal .tilde {
-    color: blue; }
+.homepage {
+  background: #ebe4e4;
+  color: black;
+  height: 100vh; }
