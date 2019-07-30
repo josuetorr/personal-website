@@ -1,0 +1,29 @@
+
+// Colors outside the terminal layout
+$textColor: black;
+$bgColor: rgb(235, 228, 228);
+
+// Media query mixins
+@mixin mediaSmall {
+    @media screen and (max-width: 500px) {
+        @content;
+    }
+}
+
+@mixin mediaMedium {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin mediaLarge {
+    @media screen and (min-width: 179px) and (max-width: 1170px) {
+        @content;
+    }
+}
+
+@mixin mediaXL {
+    @media screen and (min-width: 1171px) {
+        @content;
+    }
+}

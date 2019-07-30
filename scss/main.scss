@@ -1,3 +1,6 @@
+@import 'utils';
+
+
 * {
     margin: 0;
     padding: 0;
@@ -8,11 +11,14 @@ body {
     font-family: 'Anonymous Pro', monospace;
 }
 
-.landing {
+main {
+    height: 100vh;
+}
+
+#landing {
     background: #232a3f;
     color: #fff;
-    height: 100vh;
-    padding: 25vh;
+    padding: 22vh;
 
     .terminal {
 
@@ -76,8 +82,60 @@ body {
     }
 }
 
-.homepage {
-    background: rgb(235, 228, 228);
-    color: black;
-    height: 100vh;
+// General setup
+
+#homepage, 
+#aboutme, 
+#blog, 
+#projects, 
+#reachme,
+.nav-bar {
+    background: $bgColor;
+    color: $textColor;
 }
+
+a {
+    text-decoration: none;
+    color: $textColor;
+}
+
+ul {
+    list-style-type: none;
+}
+
+h1 {
+    font-size: 20rem;
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+// Every page will be nested within its own ID
+
+.nav-bar {
+    position: fixed;
+    left: 75%;
+    top: 35%;
+
+    .hamburger-menu {
+        visibility: hidden;
+    }
+
+    .nav-item {
+        font-size: 1.5rem;
+        margin: 1rem;
+    }
+}
+
+#homepage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .social-media li {
+        display: inline-block;
+    }
+
+}
+
+@import 'responsiveness';
