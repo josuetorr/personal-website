@@ -11,14 +11,72 @@ body {
     font-family: 'Anonymous Pro', monospace;
 }
 
-main {
+// General setup
+
+a {
+    text-decoration: none;
+    color: $textColor;
+    transition: font-size, font-weight, color, 100ms ease-in;
+
+    &:hover {
+        color: red;
+        font-size: 3rem;
+        font-weight: bold;
+        cursor: pointer;
+    }
+}
+
+p {
+    &:hover {
+        font-size: 2rem;
+        color: red;
+    }
+}
+
+ul {
+    list-style-type: none;
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+.page-description h1 {
+    font-size: 12rem;
+    padding: 1rem;
+    margin: 0 1rem;
+}
+
+// Rules for pages based on Single-Page-Application
+
+.page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    visibility: hidden;
+    padding: 3rem;
     height: 100vh;
+    width: 100%;
+    min-width: 100%;
+    position: fixed;
+    background: $bgColor;
+    color: $textColor;
+} 
+
+.active {
+    visibility: visible;
 }
 
 #landing {
+    display: block;
     background: #232a3f;
     color: #fff;
     padding: 22vh;
+    height: 100vh;
+
+    p:hover {
+        font-size: 1em;
+        color: white;
+    }
 
     .terminal {
 
@@ -82,60 +140,102 @@ main {
     }
 }
 
-// General setup
-
-#homepage, 
-#aboutme, 
-#blog, 
-#projects, 
-#reachme,
-.nav-bar {
-    background: $bgColor;
-    color: $textColor;
-}
-
-a {
-    text-decoration: none;
-    color: $textColor;
-}
-
-ul {
-    list-style-type: none;
-}
-
-h1 {
-    font-size: 20rem;
-}
-
-h3 {
-    font-size: 3rem;
-}
-
-// Every page will be nested within its own ID
+// Nav bar will have the same look and feel for each page
 
 .nav-bar {
-    position: fixed;
-    left: 75%;
-    top: 35%;
+    margin: auto;
 
     .hamburger-menu {
         visibility: hidden;
     }
 
-    .nav-item {
-        font-size: 1.5rem;
-        margin: 1rem;
+    .nav-links {
+
+        .nav-item {
+            margin: 3rem;
+            font-size: 3rem;
+        }
     }
 }
 
+// Each page has its own ID
+
 #homepage {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    h1 {
+        font-size: 20rem;
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    h3, ul li a{
+        padding: 0.5rem;
+        margin: 0.5rem;
+    }
+
+    ul {
+        padding-left: 10px;
+    }
 
     .social-media li {
         display: inline-block;
     }
+}
 
+#aboutme {
+    p {
+        margin: 2rem;
+    }
+}
+
+#projects {
+
+}
+
+#reachme {
+    form {
+        display: grid;
+
+         * {
+            margin: 1rem;
+            padding: 1rem 1rem 0.5rem 1rem;
+            border: none;
+            background: $bgColor;
+            color: $textColor;
+         }
+
+         input {
+            border-bottom: 1px solid darken($bgColor, 10);
+         }
+
+         textarea {
+             resize: none;
+             border: 1px solid darken($bgColor, 10);
+         }
+
+         input:hover,
+         textarea:hover{
+
+             &::placeholder {
+                 color: red;
+                 font-size: 1.3em;
+                 font-weight: bold;
+             }
+         }
+
+        //  input:focus,
+        //  textarea:focus{
+        //      &::placeholder {
+        //          color: $textColor;
+        //          font-size: 1rem;
+        //      }
+        //  }
+
+         button {
+            &:hover {
+                cursor: pointer;
+            }
+         }
+    }
 }
 
 @import 'responsiveness';

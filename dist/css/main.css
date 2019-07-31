@@ -6,13 +6,55 @@
 body {
   font-family: 'Anonymous Pro', monospace; }
 
-main {
-  height: 100vh; }
+a {
+  text-decoration: none;
+  color: black;
+  transition: font-size, font-weight, color, 100ms ease-in; }
+  a:hover {
+    color: red;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer; }
+
+p:hover {
+  font-size: 2rem;
+  color: red; }
+
+ul {
+  list-style-type: none; }
+
+h3 {
+  font-size: 3rem; }
+
+.page-description h1 {
+  font-size: 12rem;
+  padding: 1rem;
+  margin: 0 1rem; }
+
+.page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  visibility: hidden;
+  padding: 3rem;
+  height: 100vh;
+  width: 100%;
+  min-width: 100%;
+  position: fixed;
+  background: #ebe4e4;
+  color: black; }
+
+.active {
+  visibility: visible; }
 
 #landing {
+  display: block;
   background: #232a3f;
   color: #fff;
-  padding: 22vh; }
+  padding: 22vh;
+  height: 100vh; }
+  #landing p:hover {
+    font-size: 1em;
+    color: white; }
   #landing .terminal {
     background-color: black;
     border-radius: 5px;
@@ -51,40 +93,49 @@ main {
       #landing .terminal .screen .tilde {
         color: blue; }
 
-#homepage,
-#aboutme,
-#blog,
-#projects,
-#reachme,
 .nav-bar {
-  background: #ebe4e4;
-  color: black; }
-
-a {
-  text-decoration: none;
-  color: black; }
-
-ul {
-  list-style-type: none; }
-
-h1 {
-  font-size: 20rem; }
-
-h3 {
-  font-size: 3rem; }
-
-.nav-bar {
-  position: fixed;
-  left: 75%;
-  top: 35%; }
+  margin: auto; }
   .nav-bar .hamburger-menu {
     visibility: hidden; }
-  .nav-bar .nav-item {
-    font-size: 1.5rem;
-    margin: 1rem; }
+  .nav-bar .nav-links .nav-item {
+    margin: 3rem;
+    font-size: 3rem; }
 
-#homepage {
-  display: grid;
-  grid-template-columns: 1fr 1fr; }
-  #homepage .social-media li {
-    display: inline-block; }
+#homepage h1 {
+  font-size: 20rem;
+  padding: 1rem;
+  margin: 1rem; }
+
+#homepage h3, #homepage ul li a {
+  padding: 0.5rem;
+  margin: 0.5rem; }
+
+#homepage ul {
+  padding-left: 10px; }
+
+#homepage .social-media li {
+  display: inline-block; }
+
+#aboutme p {
+  margin: 2rem; }
+
+#reachme form {
+  display: grid; }
+  #reachme form * {
+    margin: 1rem;
+    padding: 1rem 1rem 0.5rem 1rem;
+    border: none;
+    background: #ebe4e4;
+    color: black; }
+  #reachme form input {
+    border-bottom: 1px solid #d5c7c7; }
+  #reachme form textarea {
+    resize: none;
+    border: 1px solid #d5c7c7; }
+  #reachme form input:hover::placeholder,
+  #reachme form textarea:hover::placeholder {
+    color: red;
+    font-size: 1.3em;
+    font-weight: bold; }
+  #reachme form button:hover {
+    cursor: pointer; }
