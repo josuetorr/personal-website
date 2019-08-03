@@ -78,7 +78,3 @@ export default class Typewriter
 	getContainer() { return this.container; }
 
 }
-
-
-
-

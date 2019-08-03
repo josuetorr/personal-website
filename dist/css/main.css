@@ -93,24 +93,16 @@ h3 {
       #landing .terminal .screen .tilde {
         color: blue; }
 
-.nav-bar {
-  margin: auto; }
-  .nav-bar .hamburger-menu {
-    visibility: hidden; }
-  .nav-bar .nav-links .nav-item {
-    margin: 3rem;
-    font-size: 3rem; }
-
 #homepage h1 {
   font-size: 20rem;
   padding: 1rem;
   margin: 1rem; }
 
-#homepage h3, #homepage ul li a {
+#homepage .page-description h3, #homepage .page-description ul li a {
   padding: 0.5rem;
   margin: 0.5rem; }
 
-#homepage ul {
+#homepage .social-media {
   padding-left: 10px; }
 
 #homepage .social-media li {
@@ -139,3 +131,11 @@ h3 {
     font-weight: bold; }
   #reachme form button:hover {
     cursor: pointer; }
+
+.nav-bar {
+  margin: auto; }
+  .nav-bar .hamburger-menu {
+    visibility: hidden; }
+  .nav-bar .nav-links .nav-item {
+    margin: 3rem;
+    font-size: 3rem; }
