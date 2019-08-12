@@ -1,3 +1,11 @@
+import Typewriter from './typewriter.js';
+
+const tw = new Typewriter({
+    el: '.tw'
+});
+
+tw.type();
+
 // Single Page App
 const spa = {
     
@@ -42,6 +50,7 @@ const spa = {
 
         page1.classList.remove('active');
         page2.classList.add('active');
+        console.log(page1, page2);
 
     },
 
@@ -77,3 +86,4 @@ const spa = {
 };
 
 document.addEventListener('DOMContentLoaded', spa.init);
+
