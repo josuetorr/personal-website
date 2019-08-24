@@ -57,7 +57,7 @@ const sendMail = async (fullName, emailFrom, subject, content) => {
 
 
     smtpTransporter.sendMail(mailOptions, (err, resp) => {
-        if (err) { console.log(err); }
+        if (err) { console.log(err, 'here is the err'); }
         else { console.log(resp); }
         smtpTransporter.close();
     });
