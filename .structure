@@ -1,0 +1,20 @@
+public
+    |
+    |_ img
+    |_ css
+    |_ html
+    |_ js
+
+modules
+    |
+    |_
+    |_  individual apps that can "talk" to eachother
+    |_ 
+    |_ app1
+        |
+        |- controllers
+        |_ routes
+        |_ models
+
+app.js
+server.js

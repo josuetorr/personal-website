@@ -2,6 +2,12 @@ const nodemailer = require('nodemailer');
 const { google } = require('googleapis');
 const OAuth2 = google.auth.OAuth2;
 
+const clientID = process.env.CLIENTID;
+const clientSecret = process.env.CLIENTSECRET;
+const redirectUrl = process.env.REDIRECTURL;
+const myEmail = process.env.EMAIL;
+const refreshToken = process.env.REFRESHTOKEN;
+
 /**
  * Sends an email to my personal gmail with the full name, email, subject and content 
  * from the sender.
@@ -13,17 +19,17 @@ const OAuth2 = google.auth.OAuth2;
  * @param emailFrom sender's email
  * @param subject   email's subject 
  * @param content   email content 
+ * 
+ * @return an object containing the response with a successful message if the email was sent successfully.
+ *          Otherwise, returns an object with and error property and a message indicating that something went wrong
  */
 const sendMail = async (fullName, emailFrom, subject, content) => {
 
-    const clientID = process.env.CLIENTID;
-    const clientSecret = process.env.CLIENTSECRET;
-    const redirectUrl = process.env.REDIRECTURL;
-    const myEmail = process.env.EMAIL;
-    const refreshToken = process.env.REFRESHTOKEN;
+    // Object to be returned
+    const exitStatus = {};
 
     const OAuth2Client = new OAuth2(clientID, clientSecret, redirectUrl);
-    OAuth2Client.setCredentials({ refresh_token: process.env.REFRESHTOKEN });
+    OAuth2Client.setCredentials({ refresh_token: refreshToken });
     const accessToken = await OAuth2Client.getAccessToken();
 
     const smtpTransporter = nodemailer.createTransport({
@@ -39,8 +45,8 @@ const sendMail = async (fullName, emailFrom, subject, content) => {
     });
 
     const mailOptions = {
-        from: process.env.EMAIL,
-        to: process.env.EMAIL,
+        from: myEmail,
+        to: myEmail,
         subject: 'Sent from Nodemailer',
         generateTextFromHTML: true,
         html: `
@@ -55,13 +61,22 @@ const sendMail = async (fullName, emailFrom, subject, content) => {
         `
     };
 
-
+    // NEED TO FIGURE OUT HOW TO SEND THE RESPONSE FROM THIS FONCTION 
     smtpTransporter.sendMail(mailOptions, (err, resp) => {
-        if (err) { console.log(err, 'here is the err'); }
-        else { console.log(resp); }
+
+        if (err) {
+            exitStatus.error = err;
+            exitStatus.message = 'Oops! Something went wrong.';
+        } else {
+            exitStatus.response = resp;
+            exitStatus.message = 'Email sent successfully.';
+        }
+
         smtpTransporter.close();
     });
 
+    console.log(exitStatus);
+    return exitStatus;
 };
 
 module.exports = sendMail;

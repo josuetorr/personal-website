@@ -1,6 +1,6 @@
 const dotenv = require('dotenv').config()
 const http = require('http');
-const app = require('./src/app');
+const app = require('./app');
 
 // Check if the is an env variable for the port.
 // By default, we listen on port 3000

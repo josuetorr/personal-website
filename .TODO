@@ -1,3 +1,4 @@
+*) Figure out how to send the response from smpt.sendMail() function
 1) Verify that the user entered a valid email address
 2) Limit the request sent to a reasonable amout per second
 3) Figure out how to connect the front-end to the back-end
