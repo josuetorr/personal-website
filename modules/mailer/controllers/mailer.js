@@ -1,12 +1,5 @@
 const nodemailer = require('nodemailer');
-const { google } = require('googleapis');
-const OAuth2 = google.auth.OAuth2;
-
-const clientID = process.env.CLIENTID;
-const clientSecret = process.env.CLIENTSECRET;
-const redirectUrl = process.env.REDIRECTURL;
-const myEmail = process.env.EMAIL;
-const refreshToken = process.env.REFRESHTOKEN;
+const googleOAuth2 = require('../../common/google_oauth2');
 
 /**
  * Sends an email to my personal gmail with the full name, email, subject and content 
@@ -33,36 +26,25 @@ const sendMail = (emailContent, callback) => {
         return console.log('sendmail: \"callback\" must be a function');
     }
 
-    const OAuth2Client = new OAuth2(clientID, clientSecret, redirectUrl);
-    OAuth2Client.setCredentials({ refresh_token: refreshToken });
-    const accessToken = OAuth2Client.getAccessToken();
-
     const smtpTransporter = nodemailer.createTransport({
         service: 'gmail',
-        auth: {
-            type: 'OAuth2',
-            user: myEmail,
-            clientId: clientID,
-            clientSecret: clientSecret,
-            refreshToken: refreshToken,
-            accessToken: accessToken
-        }
+        auth: googleOAuth2.auth
     });
 
     const mailOptions = {
-        from: myEmail,
-        to: myEmail,
+        from: process.env.MY_EMAIL,
+        to: process.env.MY_EMAIL,
         subject: 'Sent from Nodemailer',
         generateTextFromHTML: true,
         html: `
         <h2>Contact Info</h2>
         <ul>
             <li>Name: ${emailContent.fullName}</li>
-            <li>Email: ${emailContent.emailFrom}</li>
+            <li>Email: ${emailContent.email}</li>
         </ul>
         <h2>Email Content</h2>
         <h3>Subject: ${emailContent.subject}</h3>
-        <p>${emailContent.content}</p>
+        <p>${emailContent.message}</p>
         `
     };
 
@@ -76,4 +58,31 @@ const sendMail = (emailContent, callback) => {
 
 };
 
-module.exports = sendMail;
+
+// Post request handler
+exports.send = (req, res) => {
+    const emailContent = {
+        fullName: req.body.fullName,
+        email: req.body.email,
+        subject: req.body.subject,
+        message: req.body.message
+    };
+
+    sendMail(emailContent, (err, messageInfo) => {
+    if (err) {
+        res.status(500).json({
+            error: {
+                message: 'Oops! Could not send the email',
+                details: err
+            }
+        });
+    } else {
+        res.status(200).json({
+            emailInfo: {
+                message: 'Email was sent successfully',
+                details: messageInfo
+            }
+        })
+    }
+});
+}

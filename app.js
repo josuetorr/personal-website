@@ -20,4 +20,20 @@ app.get('/', (req, res, next) => {
 
 app.use('/sendemail', mailerRouter);
 
+// Error handling
+app.use((req, res, next) => {
+    const err = new Error('Not found');
+    err.status = 404;
+    next(err);
+});
+
+app.use((error, req, res, next) => {
+    res.status(error.status || 500).json({
+        error: {
+            message: error.message
+        }
+    });
+    console.log(error);
+});
+
 module.exports = app;
