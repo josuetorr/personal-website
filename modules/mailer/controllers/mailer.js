@@ -15,22 +15,27 @@ const refreshToken = process.env.REFRESHTOKEN;
  * Using nodemailer, we authenticate using OAuth2 through gmail which was setup from 
  * the Google cloud console.
  * 
- * @param fullName  sender's full name
- * @param emailFrom sender's email
- * @param subject   email's subject 
- * @param content   email content 
+ * @param emailContent object containing the information about the email such as:
+ * - Sender's full name
+ * - Sender's email address
+ * - Email subject
+ * - Email message
+ * 
+ * @param callback function that is called once the email has been sent. Takes 2 paramaters, an error if the email
+ * was not sent successfully and a messageSentInfo if the email was sent successfully.
  * 
  * @return an object containing the response with a successful message if the email was sent successfully.
  *          Otherwise, returns an object with and error property and a message indicating that something went wrong
  */
-const sendMail = async (fullName, emailFrom, subject, content) => {
+const sendMail = (emailContent, callback) => {
 
-    // Object to be returned
-    const exitStatus = {};
+    if (typeof callback != 'function') {
+        return console.log('sendmail: \"callback\" must be a function');
+    }
 
     const OAuth2Client = new OAuth2(clientID, clientSecret, redirectUrl);
     OAuth2Client.setCredentials({ refresh_token: refreshToken });
-    const accessToken = await OAuth2Client.getAccessToken();
+    const accessToken = OAuth2Client.getAccessToken();
 
     const smtpTransporter = nodemailer.createTransport({
         service: 'gmail',
@@ -52,31 +57,23 @@ const sendMail = async (fullName, emailFrom, subject, content) => {
         html: `
         <h2>Contact Info</h2>
         <ul>
-            <li>Name: ${fullName}</li>
-            <li>Email: ${emailFrom}</li>
+            <li>Name: ${emailContent.fullName}</li>
+            <li>Email: ${emailContent.emailFrom}</li>
         </ul>
         <h2>Email Content</h2>
-        <h3>Subject: ${subject}</h3>
-        <p>${content}</p>
+        <h3>Subject: ${emailContent.subject}</h3>
+        <p>${emailContent.content}</p>
         `
     };
 
     // NEED TO FIGURE OUT HOW TO SEND THE RESPONSE FROM THIS FONCTION 
-    smtpTransporter.sendMail(mailOptions, (err, resp) => {
+    smtpTransporter.sendMail(mailOptions, (err, messageInfo) => {
 
-        if (err) {
-            exitStatus.error = err;
-            exitStatus.message = 'Oops! Something went wrong.';
-        } else {
-            exitStatus.response = resp;
-            exitStatus.message = 'Email sent successfully.';
-        }
+        callback(err, messageInfo);
 
         smtpTransporter.close();
     });
 
-    console.log(exitStatus);
-    return exitStatus;
 };
 
 module.exports = sendMail;
