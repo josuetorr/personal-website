@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer');
-const googleOAuth2 = require('../../common/google_oauth2');
+const googleOAuth2 = require('../../google_oauth2/google_oauth2');
 
 /**
  * Sends an email to my personal gmail with the full name, email, subject and content 
