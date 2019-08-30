@@ -2,6 +2,20 @@ const nodemailer = require('nodemailer');
 const googleOAuth2 = require('../../google_oauth2/google_oauth2');
 
 /**
+ * We simply check if the email given contains the @ symbol
+ * 
+ * THIS JUST FOR NOW, MIGHT BE CHANGED IN LATER ITERATIONS
+ * 
+ * @param email to be validated
+ * 
+ * @return true if the email is valid, false otherwise
+ */
+const isEmailValid = (email) => {
+    const regex = /\S+@\S+/;
+    return regex.test(email) && email.length != 0;
+}
+
+/**
  * Sends an email to my personal gmail with the full name, email, subject and content 
  * from the sender.
  * 
@@ -48,11 +62,8 @@ const sendMail = (emailContent, callback) => {
         `
     };
 
-    // NEED TO FIGURE OUT HOW TO SEND THE RESPONSE FROM THIS FONCTION 
     smtpTransporter.sendMail(mailOptions, (err, messageInfo) => {
-
         callback(err, messageInfo);
-
         smtpTransporter.close();
     });
 
@@ -61,6 +72,15 @@ const sendMail = (emailContent, callback) => {
 
 // Post request handler
 exports.send = (req, res) => {
+
+    if (!isEmailValid(req.body.email)) {
+        return res.status(400).json({
+            error: {
+                message: 'Invalid email address.'
+            }
+        });
+    }
+
     const emailContent = {
         fullName: req.body.fullName,
         email: req.body.email,
@@ -69,20 +89,20 @@ exports.send = (req, res) => {
     };
 
     sendMail(emailContent, (err, messageInfo) => {
-    if (err) {
-        res.status(500).json({
-            error: {
-                message: 'Oops! Could not send the email',
-                details: err
-            }
-        });
-    } else {
-        res.status(200).json({
-            emailInfo: {
-                message: 'Email was sent successfully',
-                details: messageInfo
-            }
-        })
-    }
-});
+        if (err) {
+            res.status(500).json({
+                error: {
+                    message: 'Oops! Could not send the email',
+                    details: err
+                }
+            });
+        } else {
+            res.status(200).json({
+                emailInfo: {
+                    message: 'Email was sent successfully',
+                    details: messageInfo
+                }
+            })
+        }
+    });
 }

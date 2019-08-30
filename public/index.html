@@ -16,10 +16,10 @@
 </head>
 <body>
    <form action="/sendemail" method="post">
-        <input type="text" name="fullName" id="fullName" placeholder="Your fullname">
-        <input type="email" name="email" id="email" placeholder="Your email">
-        <input type="text" name="subject" id="subject" placeholder="Subject">
-        <textarea name="message" id="message" cols="30" rows="10" placeholder="Say hi!"></textarea>
+        <input type="text" name="fullName" id="fullName" placeholder="Your fullname" required>
+        <input type="email" name="email" id="email" placeholder="Your email" required>
+        <input type="text" name="subject" id="subject" placeholder="Subject" required>
+        <textarea name="message" id="message" cols="30" rows="10" placeholder="Say hi!" required></textarea>
         <button type="submit" id="submit">Send</button>
     </form> 
 
