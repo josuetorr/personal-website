@@ -12,7 +12,7 @@ const googleOAuth2 = require('../../google_oauth2/google_oauth2');
  */
 const isEmailValid = (email) => {
     const regex = /\S+@\S+/;
-    return regex.test(email) && email.length != 0;
+    return regex.test(email) && email.length !== 0 && email[0]!== '@';
 }
 
 /**
@@ -93,6 +93,7 @@ exports.send = (req, res) => {
             res.status(500).json({
                 error: {
                     message: 'Oops! Could not send the email',
+                    sent: false,
                     details: err
                 }
             });
@@ -100,6 +101,7 @@ exports.send = (req, res) => {
             res.status(200).json({
                 emailInfo: {
                     message: 'Email was sent successfully',
+                    sent: true,
                     details: messageInfo
                 }
             })

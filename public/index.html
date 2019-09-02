@@ -15,7 +15,7 @@
     </style>
 </head>
 <body>
-   <form action="/sendemail" method="post">
+   <form id="form" method="post">
         <input type="text" name="fullName" id="fullName" placeholder="Your fullname" required>
         <input type="email" name="email" id="email" placeholder="Your email" required>
         <input type="text" name="subject" id="subject" placeholder="Subject" required>
@@ -24,10 +24,28 @@
     </form> 
 
     <script>
-        // document.querySelector('#submit').addEventListener('click', (e) => {
-        //     e.preventDefault();
-        //     console.log(e);
-        // });
+        document.querySelector('#submit').addEventListener('click', async (e) => {
+            e.preventDefault();
+            const form = document.querySelector('#form');
+            console.log(form[0]);
+            const dataToSend = {
+                fullName: form[0].value,
+                email: form[1].value,
+                subject: form[2].value,
+                message: form[3].value
+            };
+            
+            const jsonString = JSON.stringify(dataToSend);
+            const xhr = new XMLHttpRequest();
+
+            xhr.open("POST", "/sendemail");
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.onload = () => {
+                console.log(xhr.response);
+            };
+            xhr.send(jsonString);
+            
+        });
     </script>
 </body>
 </html>
