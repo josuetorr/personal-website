@@ -1,3 +1,3 @@
-1) Verify that the user entered a valid email address
-2) Limit the request sent to a reasonable amout per second
+1) structure the frontend code for AJAX requests
+2) error handling for non-existing routes
 4) Find a way to encrypt .env

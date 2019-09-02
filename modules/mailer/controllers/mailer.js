@@ -76,7 +76,8 @@ exports.send = (req, res) => {
     if (!isEmailValid(req.body.email)) {
         return res.status(400).json({
             error: {
-                message: 'Invalid email address.'
+                message: 'Invalid email address.',
+                sent: false
             }
         });
     }
