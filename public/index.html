@@ -23,11 +23,12 @@
         <button type="submit" id="submit">Send</button>
     </form> 
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
+        
         document.querySelector('#submit').addEventListener('click', async (e) => {
             e.preventDefault();
             const form = document.querySelector('#form');
-            console.log(form[0]);
             const dataToSend = {
                 fullName: form[0].value,
                 email: form[1].value,
@@ -36,14 +37,12 @@
             };
             
             const jsonString = JSON.stringify(dataToSend);
-            const xhr = new XMLHttpRequest();
-
-            xhr.open("POST", "/sendemail");
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.onload = () => {
-                console.log(xhr.response);
-            };
-            xhr.send(jsonString);
+            axios.post('/sendemail', dataToSend)
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => console.log(error));            
+           
             
         });
     </script>
