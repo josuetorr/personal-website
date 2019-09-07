@@ -2,45 +2,62 @@
   <div id="app">
     <router-view></router-view>
     <nav>
-      <router-link to="/">HOME</router-link>
-      <router-link to="/aboutme">ABOUT ME</router-link>
-      <router-link to="/projects">PROJECTS</router-link>
-      <router-link to="/reachme">REACH ME</router-link>
+		<router-link v-for="page in pages" :key="page.url" :to="page.url">{{ page.name }}</router-link>
     </nav>
   </div>
 </template>
 
 <script>
-
   export default {
     name: 'app',
-    components: {
-    },
+	data() {
+		return {
+			pages: {
+				homepage: {
+					url: '/',
+					name: 'HOME',
+				},
+				aboutme: {
+					url: '/aboutme',
+					name: 'ABOUT ME',
+				},
+				projects: {
+					url: '/projects',
+					name: 'PROJECTS',
+				},
+				reachme: {
+					url: '/reachme',
+					name: 'REACH ME',
+				}
+			}
+		}
+	},
   }
 </script>
 
-<style>
+<style lang="scss">
+@import "./scss/_variables.scss";
+*, 
+*::before, 
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: box-border;
+}
+
 #app {
   font-family: 'Anonymous Pro', monospace, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-}
-
-nav {
-  display: grid;
-  grid-template-rows: repeat(4, 1fr);
+  text-align: center;
+  background-color: $bgColor;
+  height: 100vh;
+  width: 100%;
 }
 
 a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
-.router-link-exact-active {
-  color: red;
-}
 </style>
