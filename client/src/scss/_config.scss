@@ -1,0 +1,24 @@
+/*
+ * General functions will live in this file.
+ * */
+
+// media queries
+
+// smartphones and tablets
+@mixin mediaMobile {
+	@media screen and (max-width: 768px) {
+		@content;
+	}
+}
+
+
+// laptops and wider screens
+@mixin mediaWide {
+	@media screen and (min-width: 769px) {
+		@content;
+	}
+}
+
+
+// General purpose functions
+

@@ -2,7 +2,7 @@
 	<div id="homepage">
 		<h1>Josh Torres</h1>
 		<h3>Programmer, Entrepreneur, Geek</h3>
-		<ul :class="socialMediaLinks.socialMediaClass">
+		<ul class="social-media-links">
 			<li v-for="link in socialMediaLinks" :key="link.url"><a :href="link.url">{{ link.name }}</a></li>
 		</ul>
 	</div>
@@ -14,7 +14,6 @@ export default {
 	data() {
 		return {
 			socialMediaLinks: {
-				socialMediaClass: 'social-media-link',
 				github: {
 					url: 'https://github.com/josuetorr',
 					name: 'Github'

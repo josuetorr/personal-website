@@ -2,7 +2,7 @@ import Vue from 'vue';
 import vueRouter from 'vue-router';
 
 import Homepage from '@/components/Homepage';
-import Aboutme from '@/components/Aboutme';
+import Aboutme from '@/components/Biography';
 import RecentProjects from '@/components/RecentProjects';
 import Reachme from '@/components/Reachme';
 
@@ -16,8 +16,8 @@ export default new vueRouter({
             component: Homepage
         },
         {
-            path: '/aboutme',
-            name: 'aboutme',
+            path: '/biography',
+            name: 'biography',
             component: Aboutme
         },
         {
