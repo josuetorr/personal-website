@@ -1,11 +1,9 @@
 <template>
 	<div id="app">
-		<main>
-			<header id="logo">
-				<img src="./assets/img/logo-large.png" alt="logo">
-			</header>
-			<router-view class="page"></router-view>
-		</main>
+		<header id="logo">
+			<img src="./assets/img/logo-large.png" alt="logo">
+		</header>
+		<router-view class="page"></router-view>
 		<nav :class="{show: isShowing}">
 			<div @click="toggleVisibility" class="nav-links">
 				<router-link class="link" 

@@ -1,0 +1,30 @@
+@mixin homepageMobile {
+	#homepage {
+		display: grid;
+		grid-template-rows: 1fr 1fr 2fr;
+		grid-row-gap: 15px;
+		height: 75%;
+		text-align: center;
+	}
+}
+
+@mixin homepageSmall {
+	@include homepageMobile
+	#homepage {
+
+		h1 {
+			font-size: 4rem;
+		}
+
+		h3 {
+			font-size: 1.5rem;
+		}
+
+		.social-media-links {
+			li {
+				margin: 10px;
+				font-size: 1.5rem;
+			}
+		}
+	}
+}

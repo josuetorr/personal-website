@@ -43,7 +43,10 @@ li {
 img {
 	height: 60px;
 	width: 60px;
+	margin: 20px;
 }
 
 @import "_config.scss";
+@import "_menu.scss";
+@import "_homepage.scss";
 @import "_layouts.scss";
