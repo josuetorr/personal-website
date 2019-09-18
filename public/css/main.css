@@ -1,0 +1,190 @@
+@font-face {
+  font-family: Montserrat;
+  src: url("../fonts/Montserrat/Montserrat-Regular.ttf"); }
+
+@font-face {
+  font-family: 'Montserrat ExtraLight';
+  src: url("../fonts/Montserrat/Montserrat-ExtraLight.ttf"); }
+
+@font-face {
+  font-family: 'Montserrat Bold';
+  src: url("../fonts/Montserrat/Montserrat-Bold.ttf"); }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: black; }
+
+html {
+  font-family: Montserrat;
+  background-color: #f6e8e5; }
+
+li {
+  list-style: none; }
+
+a {
+  transition: text-decoration, color; }
+  a:hover, a:focus {
+    text-decoration: none;
+    color: red; }
+
+.separator {
+  width: 50px;
+  height: 3px;
+  margin-bottom: 90px;
+  border-radius: 1px;
+  background-color: black; }
+
+.container {
+  margin: 0 10%;
+  max-width: 1020px; }
+  .container header.logo {
+    margin: 50px 0; }
+    .container header.logo img {
+      height: 68px;
+      width: 68px;
+      margin: 1rem; }
+  .container .page {
+    margin-bottom: 90px; }
+  .container .section-title {
+    font-size: 2rem;
+    margin-bottom: 50px; }
+  .container .home {
+    display: grid;
+    grid-template-rows: 2fr 1fr 1fr;
+    grid-row-gap: 20px;
+    text-align: center; }
+    .container .home h1 {
+      font-size: 4rem; }
+    .container .home .social-media-links li {
+      display: inline-block; }
+  .container .bio blockquote, .container .bio .about-me-content {
+    line-height: 25px;
+    margin: 20px 0; }
+  .container .bio blockquote {
+    font-weight: bold;
+    font-size: 0.8rem; }
+  .container .bio .about-me-content {
+    font-family: 'Montserrat ExtraLight';
+    text-align: justify; }
+  .container .projects .project-grid {
+    background-color: #f3e1dd;
+    border-radiues: 2px;
+    padding: 15px;
+    font-family: 'Montserrat ExtraLight'; }
+    .container .projects .project-grid .project {
+      margin: 30px 0;
+      display: grid;
+      grid-row-gap: 30px; }
+      .container .projects .project-grid .project-description {
+        text-align: justify; }
+  .container .reach-me form {
+    display: grid;
+    grid-template-rows: auto;
+    grid-row-gap: 10px; }
+    .container .reach-me form label {
+      display: none; }
+    .container .reach-me form input, .container .reach-me form textarea {
+      background-color: #f6e8e5;
+      border: none;
+      padding: 10px;
+      width: 100%; }
+      .container .reach-me form input:hover, .container .reach-me form textarea:hover {
+        cursor: text; }
+    .container .reach-me form input {
+      border-bottom: solid 2px #efd7d2; }
+    .container .reach-me form button {
+      border: none;
+      background-color: #efd7d2;
+      padding: 10px;
+      font-family: 'Montserrat Bold';
+      color: white; }
+      .container .reach-me form button:hover {
+        cursor: pointer; }
+    .container .reach-me form textarea {
+      border: solid 2px #efd7d2; }
+  .container footer {
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    align-items: center; }
+    .container footer p {
+      font-size: 14px;
+      font-family: 'Montserrat ExtraLight'; }
+    .container footer img {
+      height: 30px;
+      width: 30px;
+      right: 100%;
+      grid-column-start: end; }
+    .container footer p, .container footer img {
+      margin: 10px; }
+    .container footer span {
+      font-family: 'Montserrat ExtraLight';
+      font-style: italic; }
+
+@media screen and (max-width: 767px) {
+  .container {
+    margin: 0 20px; } }
+
+@media screen and (min-width: 768px) {
+  .container {
+    margin: auto; }
+    .container .page {
+      margin: 150px 0px; }
+      .container .page .section-title {
+        font-size: 4rem; }
+    .container .home {
+      display: grid;
+      grid-template-areas: 'h1 h1 h1 social' 'h3 h3 h3 social' 'h3 h3 h3 social';
+      grid-row-gap: 110px;
+      grid-column-gap: 100px; }
+      .container .home h1 {
+        font-size: 7rem;
+        grid-area: h1; }
+      .container .home h3 {
+        font-size: 3rem;
+        grid-area: h3; }
+      .container .home .social-media-links {
+        display: grid;
+        grid-template-rows: repeat(1fr, 4);
+        grid-area: social; }
+        .container .home .social-media-links a {
+          font-size: 2rem; }
+    .container .bio .about-me blockquote, .container .bio .about-me .about-me-content {
+      padding: 20px; }
+    .container .bio .about-me blockquote {
+      font-size: 1.1rem;
+      width: 30%; }
+    .container .bio .about-me .about-me-content {
+      font-size: 1.5rem; }
+    .container .projects .project {
+      padding: 20px; }
+      .container .projects .project-title {
+        font-size: 1.7rem; }
+      .container .projects .project-description {
+        font-size: 1.5rem; }
+      .container .projects .project-technologies {
+        font-size: 1.5rem; }
+        .container .projects .project-technologies h4, .container .projects .project-technologies ul {
+          margin: 20px 0; }
+    .container .reach-me form input,
+    .container .reach-me form textarea,
+    .container .reach-me form button {
+      font-size: 1.1rem;
+      margin: 30px 0; }
+    .container footer p {
+      font-size: 1.5rem; } }
+
+@media screen and (min-width: 768px) and (orientation: portrait) {
+  .container {
+    margin: 0px 20px; }
+    .container .home {
+      display: block;
+      text-align: center; }
+      .container .home h1, .container .home h3, .container .home .social-media-links {
+        margin: 50px 0px; }
+      .container .home .social-media-links {
+        display: inline-block; }
+        .container .home .social-media-links li {
+          margin: 15px; } }

@@ -10,7 +10,7 @@ const mailerRouter = require('./modules/mailer/routes/mailer');
 // Setup middleware
 app.use(bodyParser.urlencoded({ extended:false }));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../public')));
 app.use(morgan('dev'));
 
 app.use('/sendemail', mailerRouter);

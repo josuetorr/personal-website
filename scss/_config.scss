@@ -1,0 +1,20 @@
+// media queries
+@mixin mediaMobile {
+	@media screen and (max-width: 767px) {
+		@content;		
+	}
+}
+
+@mixin mediaStandardPortrait {
+	@media screen and (min-width: 768px) and (orientation: portrait) {
+		@content;
+	}	
+}
+
+@mixin mediaStandard {
+	@media screen and (min-width: 768px) {
+		@content;
+	}
+}
+
+

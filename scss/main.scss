@@ -1,0 +1,187 @@
+@import "_variables.scss";
+@import "_config.scss";
+
+// Base style
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: $textColor;
+}
+
+html {
+	font-family: Montserrat;
+	background-color: $bgColor;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	transition: text-decoration, color;
+	&:hover,
+    &:focus	{
+		text-decoration: none;
+		color: red;
+	}
+}
+
+.separator {
+	width: 50px;
+	height: 3px;
+	margin-bottom: 90px;
+	border-radius: 1px;
+	background-color: black;
+}
+
+.container {
+	margin: 0 10%;
+	max-width: 1020px;
+	
+	header.logo {
+		margin: 50px 0;
+		img {
+			height: 68px;
+			width: 68px;
+			margin: 1rem;
+		}
+	}
+
+	.page {
+		margin-bottom: 90px;
+	}
+
+	.section-title {
+		font-size: 2rem;
+		margin-bottom: 50px;
+	}
+
+	.home {
+		display: grid;
+		grid-template-rows: 2fr 1fr 1fr;
+		grid-row-gap: 20px;
+		text-align: center;
+
+		h1 {
+			font-size: 4rem;
+		}
+
+		.social-media-links {
+			li {
+				display: inline-block;
+			}
+		}
+	}
+
+	.bio {
+
+		blockquote, .about-me-content {
+			line-height: 25px;
+			margin: 20px 0;
+		}
+
+		blockquote {
+			font-weight: bold;
+			font-size: 0.8rem;
+		}
+
+		.about-me-content {
+			font-family: 'Montserrat ExtraLight';
+			text-align: justify;
+		}
+	}
+
+	.projects {
+		.project-grid {
+			background-color: darken($bgColor, 2);	
+			border-radiues: 2px;
+			padding: 15px;
+			font-family: 'Montserrat ExtraLight';
+			
+			.project {
+				margin: 30px 0;
+				display: grid;
+				grid-row-gap: 30px;
+
+				&-description {
+					text-align: justify;
+				}
+			}
+		}	
+	}
+
+	.reach-me {
+		form {
+			$formColor: darken($bgColor, 5);
+			display: grid;
+			grid-template-rows: auto;
+			grid-row-gap: 10px;
+
+			label {
+				display: none;
+			}
+
+
+			input, textarea {
+				background-color: $bgColor;
+				border: none;
+				padding: 10px;
+				width: 100%;
+
+				&:hover {
+					cursor: text;
+				}
+			}
+
+			input {
+				border-bottom: solid 2px $formColor;
+			}
+
+			button {
+				&:hover {
+					cursor: pointer;
+				}
+
+				border: none;
+				background-color: $formColor;
+				padding: 10px;
+				font-family: 'Montserrat Bold';
+				color: white;
+			}
+
+			textarea {
+				border: solid 2px $formColor;
+			}
+		}	
+	}
+
+	footer {
+		margin: 20px 0;
+		display: grid;
+		grid-template-columns: 5fr 1fr;
+		align-items: center;
+		p {
+			font-size: 14px;
+			font-family: 'Montserrat ExtraLight';
+		}
+
+		img {
+			height: 30px;
+			width: 30px;
+			right: 100%;
+			grid-column-start: end;
+		}
+
+		p, img {
+			margin: 10px;
+		}
+
+		span {
+			font-family: 'Montserrat ExtraLight';
+			font-style: italic;
+		}
+	}
+}
+
+@import "_mediaqueries.scss";

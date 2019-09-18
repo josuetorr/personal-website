@@ -1,0 +1,130 @@
+@include mediaMobile {
+	.container {
+		margin: 0 20px;
+	}
+}
+
+
+@include mediaStandard {
+	.container {
+		margin: auto;
+		
+		.page {
+			margin: 150px 0px;
+
+			.section-title {
+				font-size: 4rem;
+			}
+		}
+
+		.home {
+			display: grid;
+			grid-template-areas:
+			'h1 h1 h1 social'
+			'h3 h3 h3 social'
+			'h3 h3 h3 social';
+			grid-row-gap: 110px;
+			grid-column-gap: 100px;
+			
+			h1 {
+				font-size: 7rem;
+				grid-area: h1;
+			} 
+
+			h3 {
+				font-size: 3rem; 
+				grid-area: h3;
+			}
+			
+			.social-media-links {
+				display: grid;
+				grid-template-rows: repeat(1fr, 4);
+				grid-area: social;
+
+				a {
+					font-size: 2rem;
+				}
+			}
+
+		}
+
+		.bio {
+			.about-me {
+
+				blockquote, .about-me-content {
+					padding: 20px;
+				}
+				
+				blockquote {
+					font-size: 1.1rem;
+					width: 30%;
+				}
+
+				.about-me-content {
+					font-size: 1.5rem;
+				}
+			}	
+		}
+
+		.projects {
+			.project {
+				padding: 20px;
+				&-title {
+					font-size: 1.7rem;
+				}
+
+				&-description {
+					font-size: 1.5rem;
+				}
+
+				&-technologies {
+					font-size: 1.5rem;
+
+					h4, ul{
+						margin: 20px 0;
+					}
+				}
+			}
+		}
+
+		.reach-me {
+			form {
+				input,
+				textarea,
+				button {
+					font-size: 1.1rem;
+					margin: 30px 0;
+				}
+			}
+		}
+
+		footer {
+			p {
+				font-size: 1.5rem;
+			}
+		}
+	}
+}
+
+@include mediaStandardPortrait {
+
+	.container {
+		margin: 0px 20px;
+		.home {
+			display: block;
+			text-align: center;
+
+			h1, h3, .social-media-links {
+				margin: 50px 0px;
+			}
+
+			.social-media-links {
+				display: inline-block;
+
+				li {
+					margin: 15px;
+				}
+			}
+		}
+	}
+}
