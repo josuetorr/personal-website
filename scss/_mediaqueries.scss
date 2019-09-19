@@ -1,6 +1,13 @@
 @include mediaMobile {
 	.container {
 		margin: 0 20px;
+
+		.reach-me {
+			.email-response {
+				font-size: 0.8rem;
+				width: 60%;
+			}
+		}
 	}
 }
 
@@ -88,6 +95,10 @@
 		}
 
 		.reach-me {
+			.email-response {
+				width: 30%;
+			}
+
 			form {
 				input,
 				textarea,

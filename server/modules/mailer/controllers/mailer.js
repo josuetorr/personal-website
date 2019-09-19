@@ -31,7 +31,7 @@ const isEmailValid = (email) => {
  * @param callback function that is called once the email has been sent. Takes 2 paramaters, an error if the email
  * was not sent successfully and a messageSentInfo if the email was sent successfully.
  * 
- * @return an object containing the response with a successful message if the email was sent successfully.
+ * @return object containing the response with a successful message if the email was sent successfully.
  *          Otherwise, returns an object with and error property and a message indicating that something went wrong
  */
 const sendMail = (emailContent, callback) => {
@@ -85,7 +85,7 @@ exports.send = (req, res) => {
     if (req.body.fullName.length === 0) {
         return res.status(400).json({
             error: {
-                message: 'Full name missing.',
+                message: 'Full name is required.',
                 sent: false
             }
         });

@@ -79,6 +79,15 @@ a {
       grid-row-gap: 30px; }
       .container .projects .project-grid .project-description {
         text-align: justify; }
+  .container .reach-me .email-response {
+    padding: 10px;
+    margin: 20px 0; }
+  .container .reach-me .email-error {
+    border-bottom: solid 5px #ff1a1a;
+    color: #ff1a1a; }
+  .container .reach-me .email-sent {
+    border-bottom: solid 5px #008a00;
+    color: #00a400; }
   .container .reach-me form {
     display: grid;
     grid-template-rows: auto;
@@ -125,7 +134,10 @@ a {
 
 @media screen and (max-width: 767px) {
   .container {
-    margin: 0 20px; } }
+    margin: 0 20px; }
+    .container .reach-me .email-response {
+      font-size: 0.8rem;
+      width: 60%; } }
 
 @media screen and (min-width: 768px) {
   .container {
@@ -168,6 +180,8 @@ a {
         font-size: 1.5rem; }
         .container .projects .project-technologies h4, .container .projects .project-technologies ul {
           margin: 20px 0; }
+    .container .reach-me .email-response {
+      width: 30%; }
     .container .reach-me form input,
     .container .reach-me form textarea,
     .container .reach-me form button {

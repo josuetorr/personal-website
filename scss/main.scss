@@ -112,11 +112,29 @@ a {
 	}
 
 	.reach-me {
+		.email {
+			&-response {
+				padding: 10px;
+				margin: 20px 0;
+			}
+
+			&-error {
+				border-bottom: solid 5px lighten(red, 5);
+				color: lighten(red, 5);
+			}
+
+			&-sent {
+				border-bottom: solid 5px lighten(green, 2);
+				color: lighten(green, 7);
+			}
+		}
+
 		form {
 			$formColor: darken($bgColor, 5);
 			display: grid;
 			grid-template-rows: auto;
 			grid-row-gap: 10px;
+
 
 			label {
 				display: none;
