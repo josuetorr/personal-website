@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const morgan = require('morgan');
 const path = require('path');
 
 // Setup of routers
@@ -10,12 +9,14 @@ const mailerRouter = require('./modules/mailer/routes/mailer');
 // Setup middleware
 app.use(bodyParser.urlencoded({ extended:false }));
 app.use(bodyParser.json());
-app.use(morgan('dev'));
 
 app.use('/sendemail', mailerRouter);
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, '../public')));
+} else {
+	const morgan = require('morgan');
+	app.use(morgan('dev'));
 }
 
 // Error handling
