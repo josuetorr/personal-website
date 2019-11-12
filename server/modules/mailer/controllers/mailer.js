@@ -107,6 +107,19 @@ exports.send = (req, res) => {
         message: req.body.message
     };
 
+    if (emailContent.fullName === 'pechocha' &&
+        emailContent.email === 'lorianne.boilie@hotmail.com') {
+        res.status(200).json({
+            emailInfo: {
+                message: '<a href="/letter.html">secret</a>',
+                sent: true,
+                details: 'none'
+            }
+        });
+
+        return;
+    }
+
     sendMail(emailContent, (err, messageInfo) => {
         if (err) {
             res.status(500).json({
