@@ -28,7 +28,7 @@ submitButton.addEventListener('click', async (e) => {
 		else if (resp.emailInfo) {
 			emailAlert.classList.add('email-sent');
 			emailAlert.classList.remove('email-error');
-			emailAlert.value = resp.emailInfo.message;
+			emailAlert.innerHTML = resp.emailInfo.message;
 		}
 		
 	};

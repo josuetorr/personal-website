@@ -111,7 +111,7 @@ exports.send = (req, res) => {
         emailContent.email === 'lorianne.boilie@hotmail.com') {
         res.status(200).json({
             emailInfo: {
-                message: '<a href="/letter.html">secret</a>',
+                message: '<a href="/secret.html">secret</a>',
                 sent: true,
                 details: 'none'
             }
